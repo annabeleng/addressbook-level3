@@ -46,7 +46,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | can remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | to minimize chance of someone else seeing them by accident
+`* *` | user | list all people staying in a particular location | see who are the people in my address book staying in that area
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | private user | have a password protected address book | protect against nosey people who wants to snoop
 
 
 ## Appendix B : Use Cases
@@ -74,12 +76,53 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Change tag
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to change a tag of a specific person in the list
+4. AddressBook prompts user which tag to change
+5. User key in the tag to be changed
+6. AddressBook prompts user on the details of the new tag name
+7. User key in required tag name
+8. AddressBook shows user the intended change and prompts confirmation
+9. User confirms the change
+10. AddressBook changes the tag and show to user the change
+Use case ends.
+
+**Extensions**
+ 
+2a. The list is empty
+ 
+> Use case ends
+ 
+3a. The given index is invalid
+ 
+> 3a1. AddressBook shows an error message
+  Use case resumes at step 2
+  
+5a. The tag to be changed does not exists
+
+> 5a1. AddressBook shows an error message
+  Use case resumes at step 4
+  
+9a. User reject the change
+
+> Use case resumes at step 2
+
+
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. User should be able to get a response within 5 seconds of keying in command
+6. This system should be protected against hackers/other users for privacy
+
 
 ## Appendix D : Glossary
 
